@@ -1,79 +1,47 @@
-# Learn2
+# select2.org
 
-![Learn2](screenshot.jpg)
+https://select2.org
 
-Learn2 is the default [Grav Learn](http://learn.getgrav.org) theme. Simple, fast and modern.
+This is the repository for the documentation for Select2.  It is built with the flat-file CMS [Grav](http://getgrav.org), using their [RTFM skeleton](https://github.com/getgrav/grav-skeleton-rtfm-site#rtfm-skeleton).
 
-# Installation
+## Local installation
 
-Installing the Learn2 theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file. 
+### Step 1 - Install Grav
 
-The theme is designed to be used to provide a documentation site. You can see this in action at [](http://learn.getgrav.org)
+This application uses the [Grav](https://learn.getgrav.org/) CMS.  This repository does not contain a full Grav installation - rather, it just contains the contents of Grav's `user` directory, which is where all of our content, themes, and assets live.  This was done as per the [recommendation on Grav's blog](https://getgrav.org/blog/developing-with-github-part-2), to make it easier to deploy changes to the live server.
 
-## GPM Installation (Preferred)
+To install this website on your computer, first [install grav core](https://getgrav.org/downloads) in a project folder called `select2-docs` under your webserver's document root folder. Then, find the `user` folder inside of your project folder.  Delete the contents of the `user` folder and clone this repository directly into the user folder.
 
-The simplest way to install this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
+When you're done it might look something like this:
 
-    bin/gpm install learn2
+```
+htdocs/
+└── select2-docs/
+   ├── assets/
+   ├── ...
+   ├── user/
+       ├── .git
+       ├── accounts/
+       ├── assets/
+       ├── config/
+       └── ...
+   └── ...
 
-This will install the Learn2 theme into your `/user/themes` directory within Grav. Its files can be found under `/your/site/grav/user/themes/learn2`.
+```
 
-## Manual Installation
+### Step 2
 
-To install this theme, just download the zip version of this repository and unzip it under `/your/site/grav/user/themes`. Then, rename the folder to `learn2`. You can find these files either on [GitHub](https://github.com/getgrav/grav-theme-learn2) or via [GetGrav.org](http://getgrav.org/downloads/themes).
+Grav needs your webserver to be able to write to certain directories.  In OSX with XAMPP installed, this won't work by default.  To deal with this:
 
-You should now have all the theme files under
+Add default webserver user `daemon` to OSX's `staff` group (which already has the necessary permissions for writing to files/directories):
 
-    /your/site/grav/user/themes/learn2
+`sudo dseditgroup -o edit -a daemon -t user staff`
 
->> NOTE: This theme is a modular component for Grav which requires the [Grav](http://github.com/getgrav/grav), [Error](https://github.com/getgrav/grav-theme-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins.
+### Step 3
 
-# Updating
+Visit the local installation in your browser!  For example, http://localhost/select2-docs.
 
-As development for the Learn2 theme continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Learn2 is easy, and can be done through Grav's GPM system, as well as manually.
+## Credits
 
-## GPM Update (Preferred)
+Favicons were generated with https://realfavicongenerator.net/
 
-The simplest way to update this theme is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm). You can do this with this by navigating to the root directory of your Grav install using your system's Terminal (also called command line) and typing the following:
-
-    bin/gpm update learn2
-
-This command will check your Grav install to see if your Learn2 theme is due for an update. If a newer release is found, you will be asked whether or not you wish to update. To continue, type `y` and hit enter. The theme will automatically update and clear Grav's cache.
-
-## Manual Update
-
-Manually updating Learn2 is pretty simple. Here is what you will need to do to get this done:
-
-* Delete the `your/site/user/themes/learn2` directory.
-* Download the new version of the Learn2 theme from either [GitHub](https://github.com/getgrav/grav-theme-learn2) or [GetGrav.org](http://getgrav.org/downloads/themes#extras).
-* Unzip the zip file in `your/site/user/themes` and rename the resulting folder to `learn2`.
-* Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
-
-> Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/themes`) will remain intact.
-
-## Features
-
-* Lightweight and minimal for optimal performance
-* Fully responsive with off-page mobile navigation
-* SCSS based CSS source files for easy customization
-* Built specifically for providing easy to read documentation
-* Fontawesome icon support
-
-### Supported Page Templates
-
-* "Docs" template
-* "Chapter" template
-* Error view template
-
-
-## Setup
-
-If you want to set Learn2 as the default theme, you can do so by following these steps:
-
-* Navigate to `/your/site/grav/user/config`.
-* Open the **system.yaml** file.
-* Change the `theme:` setting to `theme: learn2`.
-* Save your changes.
-* Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in Terminal and typing `bin/grav clear-cache`.
-
-Once this is done, you should be able to see the new theme on the frontend. Keep in mind any customizations made to the previous theme will not be reflected as all of the theme and templating information is now being pulled from the **learn2** folder.
